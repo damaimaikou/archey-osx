@@ -43,9 +43,9 @@ if [[ $(sw_vers -productVersion | awk -F '.' '{print $1"."$2}') == "10.15" ]] ; 
   codename="macOS Catalina"
 elif [[ $(sw_vers -productVersion | awk -F '.' '{print $1"."$2}') == "10.16" || $(sw_vers -productVersion | awk -F '.' '{print $1}') == "11" ]] ; then
   codename="macOS Big Sur"
-elif [[ $(sw_vers -productVersion | awk -F '.' '{print $1"."$2}') == "12.0" || $(sw_vers -productVersion | awk -F '.' '{print $1}') == "11" ]] ; then
+elif [[ $(sw_vers -productVersion | awk -F '.' '{print $1"."$2}') == "12.0" || $(sw_vers -productVersion | awk -F '.' '{print $1}') == "12" ]] ; then
   codename="macOS Monterey"
-elif [[ $(sw_vers -productVersion | awk -F '.' '{print $1"."$2}') == "13.0" || $(sw_vers -productVersion | awk -F '.' '{print $1}') == "11" ]] ; then
+elif [[ $(sw_vers -productVersion | awk -F '.' '{print $1"."$2}') == "13.0" || $(sw_vers -productVersion | awk -F '.' '{print $1}') == "13" ]] ; then
   codename="macOS Ventura"
 else
   codename=$(xxd -ps /System/Applications/Utilities/System\ Information.app/Contents/MacOS/System\ Information | tr -d '\n' | perl -nle "print $& if m{00$(sw_vers -productVersion | awk -F '.' '{printf $1"."$2}' | xxd -ps)00\K.*?00}" | xxd -r -p)
